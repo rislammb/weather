@@ -14,7 +14,7 @@ function getSearchMethod(searchTerm) {
 function searchWeather(searchTerm) {
   getSearchMethod(searchTerm);
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
+    `https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
   )
     .then(res => res.json())
     .then(res => init(res))
@@ -55,7 +55,7 @@ function init(resultFromServer) {
   const weatherIcon = document.getElementById('documentIconImg');
 
   weatherIcon.src =
-    'http://openweathermap.org/img/w/' +
+    'https://openweathermap.org/img/w/' +
     resultFromServer.weather[0].icon +
     '.png';
   const resultDescription = resultFromServer.weather[0].description;
