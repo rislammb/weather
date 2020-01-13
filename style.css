@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
 }
+html,
 body {
   height: 100vh;
   background: linear-gradient(rgb(127, 127, 206), rgb(138, 207, 216));
@@ -24,6 +25,7 @@ body {
 }
 #weatherContainer h1 {
   margin: 5px;
+  text-align: center;
   font-size: 35px;
 }
 #searchContainer {
