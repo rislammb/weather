@@ -44,7 +44,8 @@ function init(resultFromServer) {
         document.body.style.backgroundImage = 'url("./img/snow.jpg")';
         break;
       default:
-        document.body.style.backgroundColor = '#e3e3e3';
+        document.body.style.background =
+          'linear-gradient(rgb(127, 127, 206), rgb(138, 207, 216))';
         break;
     }
 
@@ -64,11 +65,10 @@ function init(resultFromServer) {
     const resultDescription = resultFromServer.weather[0].description;
     weatherDescriptionHeader.innerText =
       resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
-    temperature.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176C';
+    temperature.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176c';
     winSpead.innerHTML =
       'Winds at ' + Math.floor(resultFromServer.wind.speed) + ' m/s';
-    cityHeader.innerHTML =
-      resultFromServer.name + ', ' + resultFromServer.sys.country;
+    cityHeader.innerHTML = resultFromServer.name;
     humidity.innerHTML =
       'Humidity levels at ' + resultFromServer.main.humidity + '%';
 
@@ -84,7 +84,7 @@ function setPositionForWeatherInfo() {
   weatherContainerWidth = weatherContainer.clientWidth;
 
   weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`;
-  weatherContainer.style.top = `20%`;
+  weatherContainer.style.top = `25%`;
   weatherContainer.style.visibility = 'visible';
 }
 
@@ -102,7 +102,8 @@ function showError(result) {
   clearWeatherInfo();
   const cityHeader = document.getElementById('cityHeader');
   document.body.style.backgroundImage = '';
-  document.body.style.backgroundColor = '#e3e3e3';
+  document.body.style.background =
+    'linear-gradient(rgb(127, 127, 206), rgb(138, 207, 216))';
   if (result.cod === '404') {
     cityHeader.innerHTML = 'City Not Found!';
   } else {
@@ -114,5 +115,6 @@ function showError(result) {
 document.getElementById('searchForm').addEventListener('submit', e => {
   e.preventDefault();
   let searchTerm = document.getElementById('searchInput').value;
-  if (searchTerm) searchWeather(searchTerm);
+  if (searchTerm.trim() !== '') searchWeather(searchTerm);
+  else alert('Search city must not be empty!');
 });

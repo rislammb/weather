@@ -26,7 +26,7 @@ body {
 #weatherContainer h1 {
   margin: 5px;
   text-align: center;
-  font-size: 35px;
+  font-size: 30px;
 }
 #searchContainer {
   padding: 15px;
@@ -59,16 +59,16 @@ body {
   display: inline-block;
 }
 #weatherDescriptionHeader {
-  font-size: 22px;
+  font-size: 18px;
   vertical-align: 50%;
 }
 #temperature {
-  font-size: 28px;
+  font-size: 25px;
   vertical-align: 25%;
 }
 .bottom-details {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   text-align: right;
 }
 hr {
